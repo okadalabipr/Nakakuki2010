@@ -6,4 +6,4 @@
 %run -i ../runSim.py
 %matplotlib inline
 %run -i ../plot.py
-plt.savefig('../Nakakukiet_al_2016.png',bbox_inches='tight')
+plt.savefig('../Nakakuki_et_al_2016.png',bbox_inches='tight')
