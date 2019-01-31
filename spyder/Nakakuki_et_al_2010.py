@@ -5,4 +5,4 @@
 %run -i ../model/initialValues.py
 %run -i ../runSim.py
 %run -i ../plot.py
-plt.savefig('../Nakakuki_et_al_2016.png',bbox_inches='tight')
+plt.savefig('./cfosmodel.png',bbox_inches='tight')
