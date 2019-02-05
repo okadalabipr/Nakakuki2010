@@ -10,14 +10,15 @@ plt.rcParams['lines.markersize'] = 10
 plt.subplots_adjust(wspace=0.5, hspace=0.5)
 
 plt.subplot(2,4,1)
-plt.plot(t,PMEK_cyt[:,0],'b')
-plt.plot(t,PMEK_cyt[:,1],'r')
+plt.plot(t,PMEK_cyt[:,0],'b',label='EGF')
+plt.plot(t,PMEK_cyt[:,1],'r',label='HRG')
 plt.xlim(0,90)
 plt.xticks([0,30,60,90])
 plt.yticks([0,0.2,0.4,0.6,0.8,1,1.2])
 plt.ylim(0,1.2)
 plt.xlabel('Time (min)')
 plt.ylabel('Phosphorylated MEK\n(cytoplasm)')
+plt.legend(loc='upper right',fontsize=12,frameon=False)
 
 plt.subplot(2,4,2)
 plt.plot(t,PERK_cyt[:,0]/np.max(PERK_cyt[:,1]),'b')
