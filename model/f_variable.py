@@ -1,4 +1,4 @@
-variable = [\
+F_V = [\
     'ppMEKc',
     'CREBn',
     'pCREBn',
@@ -37,6 +37,5 @@ variable = [\
     'PreFmRNAn'\
 ]
 
-#name2idx(variable)
-for i,name in enumerate(variable):
+for i,name in enumerate(F_V):
   exec('%s=%d'%(name,i))

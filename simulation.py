@@ -18,8 +18,8 @@ def odesolve(diffeq,y0,tspan,args):
 
     return np.array(T),np.array(Y)
 
-x = setParamConst()
-y0 = initialValues()
+x = f_params()
+y0 = initial_values()
 
 tspan = range(5401)
 t = np.array(tspan)/60.

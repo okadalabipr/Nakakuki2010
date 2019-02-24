@@ -1,4 +1,4 @@
-constant = [\
+F_P = [\
   'V1',
   'Km1',
   'V2',
@@ -117,12 +117,11 @@ constant = [\
   'HRG'\
 ]
 
-#name2idx(constant)
-for i,name in enumerate(constant):
+for i,name in enumerate(F_P):
   exec('%s=%d'%(name,i))
 
-def setParamConst():
-  x = [0]*len(constant)
+def f_params():
+  x = [0]*len(F_P)
   x[V1] = 0.34284837
   x[Km1] = 307.0415253
   x[V2] = 2.20e-01
