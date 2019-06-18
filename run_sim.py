@@ -1,5 +1,3 @@
-import glob
-
 def include(pyfile):
     with open(pyfile,'r',encoding='utf-8') as f:
         script = f.read()

@@ -9,7 +9,7 @@ Nakakuki, T. *et al.* Ligand-specific c-Fos expression emerges from the spatiote
 ## Run Simulation and View Results
 ```python
 %matplotlib inline
-%run -i runSim.py
+%run -i run_sim.py
 ```
 ## Installation
     $ git clone https://github.com/okadalabipr/Nakakuki_et_al_2010.git
