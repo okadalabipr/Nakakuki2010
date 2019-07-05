@@ -3,6 +3,8 @@ from scipy.integrate import ode
 
 from model.name2idx import f_parameter as C
 from model.name2idx import f_variable as V
+from model.param_const import f_params
+from model.initial_condition import initial_values
 from model.differential_equation import diffeq
 
 def solveode(diffeq,y0,tspan,args):
@@ -37,29 +39,28 @@ class Simulation(object):
     cFosPro   = np.empty((len(tspan),condition))
     PcFos     = np.empty((len(tspan),condition))
 
-    def __init__(self,x,y0):
-        self.x = x
-        self.y0 = y0
+    x = f_params()
+    y0 = initial_values()
 
     @classmethod
-    def numerical_integration(cls,x,y0):
+    def numerical_integration(cls):
 
         for i in range(cls.condition):
             if i==0:
-                x[C.Ligand] = x[C.EGF]
+                cls.x[C.Ligand] = cls.x[C.EGF]
             elif i==1:
-                x[C.Ligand] = x[C.HRG]
+                cls.x[C.Ligand] = cls.x[C.HRG]
 
-            (T,Y) = solveode(diffeq,y0,cls.tspan,tuple(x))
+            (T,Y) = solveode(diffeq,cls.y0,cls.tspan,tuple(cls.x))
 
             if T[-1] < cls.tspan[-1]:
                 return False
             else:
                 cls.PMEK_cyt[:,i] = Y[:,V.ppMEKc]
                 cls.PERK_cyt[:,i] = Y[:,V.pERKc] + Y[:,V.ppERKc]
-                cls.PRSK_wcl[:,i] = Y[:,V.pRSKc] + Y[:,V.pRSKn]*(x[C.Vn]/x[C.Vc])
-                cls.PCREB_wcl[:,i] = Y[:,V.pCREBn]*(x[C.Vn]/x[C.Vc])
+                cls.PRSK_wcl[:,i] = Y[:,V.pRSKc] + Y[:,V.pRSKn]*(cls.x[C.Vn]/cls.x[C.Vc])
+                cls.PCREB_wcl[:,i] = Y[:,V.pCREBn]*(cls.x[C.Vn]/cls.x[C.Vc])
                 cls.DUSPmRNA[:,i] = Y[:,V.duspmRNAc]
                 cls.cFosmRNA[:,i] = Y[:,V.cfosmRNAc]
-                cls.cFosPro[:,i] = (Y[:,V.pcFOSn] + Y[:,V.cFOSn])*(x[C.Vn]/x[C.Vc]) + Y[:,V.cFOSc] + Y[:,V.pcFOSc]
-                cls.PcFos[:,i] = Y[:,V.pcFOSn]*(x[C.Vn]/x[C.Vc]) + Y[:,V.pcFOSc]
+                cls.cFosPro[:,i] = (Y[:,V.pcFOSn] + Y[:,V.cFOSn])*(cls.x[C.Vn]/cls.x[C.Vc]) + Y[:,V.cFOSc] + Y[:,V.pcFOSc]
+                cls.PcFos[:,i] = Y[:,V.pcFOSn]*(cls.x[C.Vn]/cls.x[C.Vc]) + Y[:,V.pcFOSc]
