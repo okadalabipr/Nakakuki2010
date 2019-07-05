@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def plot_func(sim):
+def timecourse(sim):
     plt.figure(figsize=(20,8))
     plt.rcParams['font.size'] = 16
     plt.rcParams['font.family'] = 'Arial'
