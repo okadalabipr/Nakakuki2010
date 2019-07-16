@@ -12,7 +12,7 @@ Nakakuki, T. *et al.* Ligand-specific c-Fos expression emerges from the spatiote
 from run_sim import run_simulation
 run_simulation()
 ```
-![cfosmodel](https://user-images.githubusercontent.com/31299606/61026326-f7b63180-a3ed-11e9-8fac-cd21008d3187.png)
+![cFosmodel](https://user-images.githubusercontent.com/31299606/61281645-f1142980-a7f4-11e9-9f86-d1ec0da5face.png)
 
 ## Installation
     $ git clone https://github.com/okadalabipr/Nakakuki_et_al_2010.git
