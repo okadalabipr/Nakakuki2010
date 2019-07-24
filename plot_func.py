@@ -144,5 +144,4 @@ def timecourse(sim):
     plt.xlabel('Time (min)')
     plt.ylabel('Phosphorylated c-Fos\nProtein expression')
 
-    #plt.show()
-    plt.savefig('./cFosmodel.png',dpi=1200,bbox_inches='tight')
+    plt.show()
