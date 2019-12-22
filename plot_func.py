@@ -5,12 +5,15 @@ import matplotlib.patheffects as path_effects
 def timecourse(sim):
     plt.figure(figsize=(20,8))
     plt.rcParams['font.size'] = 16
+    plt.rcParams['axes.linewidth'] = 2
+    plt.rcParams['xtick.major.width'] = 2
+    plt.rcParams['ytick.major.width'] = 2
+    plt.rcParams['xtick.direction'] = 'in'
+    plt.rcParams['ytick.direction'] = 'in'
+    plt.rcParams['lines.linewidth'] = 2.5
     plt.rcParams['font.family'] = 'Arial'
     plt.rcParams['mathtext.fontset'] = 'custom'
     plt.rcParams['mathtext.it'] = 'Arial:italic'
-    plt.rcParams['axes.linewidth'] = 2
-    plt.rcParams['lines.linewidth'] = 2.5
-    plt.rcParams['lines.markersize'] = 10
 
     plt.subplots_adjust(wspace=0.5, hspace=0.5)
 
@@ -144,4 +147,4 @@ def timecourse(sim):
     plt.xlabel('Time (min)')
     plt.ylabel('Phosphorylated c-Fos\nProtein expression')
 
-    plt.show()
+    plt.savefig('cFos_model.png',bbox_inches='tight')
