@@ -115,6 +115,7 @@ param_names = [\
   'Ligand',
   'EGF',
   'HRG',
+  'no_ligand',
   ###
   'len_f_params'\
 ]

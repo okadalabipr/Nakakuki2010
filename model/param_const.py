@@ -117,7 +117,8 @@ def f_params():
   x[C.Vn] = 0.22
   x[C.Vc] = 0.94
 
-  x[C.EGF]= 0
-  x[C.HRG]= 1
+  x[C.EGF] = 0
+  x[C.HRG] = 1
+  x[C.no_ligand] = 2
 
   return x

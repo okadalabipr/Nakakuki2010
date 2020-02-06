@@ -72,7 +72,7 @@ def diffeq(t,y,x):
 
     dydt = [0]*V.len_f_vars
 
-    if x[C.Ligand] == x[C.EGF]:#EGF=10nM
+    if x[C.Ligand] == x[C.EGF]:  # EGF = 10nM
         if t < 300.:
             dydt[V.ppMEKc] = 0.00258
         elif t < 600.:
@@ -89,8 +89,8 @@ def diffeq(t,y,x):
             dydt[V.ppMEKc] = -0.00000852
         elif t <= 5400.:
             dydt[V.ppMEKc] = -0.00000728
-
-    elif x[C.Ligand] == x[C.HRG]:#HRG=10nM
+            
+    elif x[C.Ligand] == x[C.HRG]:  # HRG = 10nM
         if t < 300.:
             dydt[V.ppMEKc] = 0.00288
         elif t < 600.:
@@ -107,6 +107,9 @@ def diffeq(t,y,x):
             dydt[V.ppMEKc] = -0.0000500
         elif t <= 5400.:
             dydt[V.ppMEKc] = -0.0000478
+            
+    else:
+        dydt[V.ppMEKc] = 0.0
 
     dydt[V.CREBn] = -v[27] + v[28]
     dydt[V.pCREBn] = v[27] - v[28]
