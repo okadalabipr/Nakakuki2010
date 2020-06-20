@@ -1,4 +1,4 @@
-var_names = [
+NAMES = [
     'ppMEKc',
     'CREBn',
     'pCREBn',
@@ -37,11 +37,11 @@ var_names = [
     'PreFmRNAn',
 ]
 
-for idx, name in enumerate(var_names):
+for idx, name in enumerate(NAMES):
     exec(
         '{} = {:d}'.format(
             name, idx
         )
     )
 
-len_f_vars = len(var_names)
+NUM = len(NAMES)
